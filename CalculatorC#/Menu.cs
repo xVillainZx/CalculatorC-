@@ -1,14 +1,14 @@
-﻿using System.Threading.Channels;
-
-namespace CalculatorC_
+﻿namespace CalculatorC_
 {
     internal class Menu
     {
         GameEngine gameEngine = new();
         internal void ShowMenu(string name, DateTime date)
         {
+            Console.Clear();
             Console.WriteLine("-----------------------------------------------");
             Console.WriteLine($"Hello {name}! It's {date}. this is your math game. Thats great that you're improving yourself!\n");
+            Console.ReadLine();
 
             var isGameOn = true;
             do

@@ -1,5 +1,4 @@
 ﻿using CalculatorC_.Models;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace CalculatorC_
 {
@@ -19,7 +18,10 @@ namespace CalculatorC_
                 var secondNumber = divisionNumbers[1];
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
+                
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == firstNumber / secondNumber)
                 {
@@ -60,7 +62,10 @@ namespace CalculatorC_
                 secondNumber = random.Next(1, 9);
 
                 Console.WriteLine($"{firstNumber} * {secondNumber}");
+                
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == firstNumber * secondNumber)
                 {
@@ -101,7 +106,10 @@ namespace CalculatorC_
                 secondNumber = random.Next(1, 9);
 
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
+                
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == firstNumber - secondNumber)
                 {
@@ -144,8 +152,11 @@ namespace CalculatorC_
                 secondNumber = random.Next(1, 9);
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
+                
                 var result = Console.ReadLine();
 
+                result = Helpers.ValidateResult(result);
+                
                 if (int.Parse(result) == firstNumber + secondNumber)
                 {
                     Console.WriteLine("Correct! Press any key to continue.");
