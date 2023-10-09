@@ -1,4 +1,6 @@
-﻿namespace CalculatorC_
+﻿using System.Threading.Channels;
+
+namespace CalculatorC_
 {
     internal class Menu
     {
@@ -12,6 +14,7 @@
             do
             {
                 Console.WriteLine($@"what game mode would you like to play today? Choose from the options below:
+v - View previous games
 a - Addition
 s - Subtraction
 m - Multiplication
@@ -23,6 +26,9 @@ q - Quit the program :(");
 
                 switch (gameSelected.Trim().ToLower())
                 {
+                    case "v":
+                        Helpers.PrintGames();
+                        break;
                     case "a":
                         gameEngine.AdditionGameMode("Addition game mode.");
                         break;
@@ -43,7 +49,7 @@ q - Quit the program :(");
                         Console.WriteLine("Invalid input");
                         break;
                 }
-            } while (isGameOn) ;
+            } while (isGameOn);
         }
     }
 }

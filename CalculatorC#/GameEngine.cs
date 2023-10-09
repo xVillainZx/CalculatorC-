@@ -1,9 +1,14 @@
-﻿namespace CalculatorC_
+﻿using CalculatorC_.Models;
+using static System.Formats.Asn1.AsnWriter;
+
+namespace CalculatorC_
 {
     internal class GameEngine
     {
        internal void DivisionGameMode(string message)
         {
+            var score = 0;
+
             for (int i = 0; i < 5; i++)
             {
                 Console.Clear();
@@ -12,7 +17,6 @@
                 var divisionNumbers = Helpers.GetDivisionNumbers();
                 var firstNumber = divisionNumbers[0];
                 var secondNumber = divisionNumbers[1];
-                var score = 0;
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
                 var result = Console.ReadLine();
@@ -35,6 +39,7 @@
                 }
             }
 
+            Helpers.AddToHistory(score, GameType.Division);
         }
 
        internal void MultiplicationGameMode(string message)
@@ -74,6 +79,8 @@
                     Console.ReadLine();
                 }
             }
+
+            Helpers.AddToHistory(score, GameType.Multiplication);
         }
 
        internal void SubtractionGameMode(string message)
@@ -113,9 +120,12 @@
                     Console.ReadLine();
                 }
             }
+            
+            Helpers.AddToHistory(score, GameType.Subtraction);
+
         }
 
-       internal void AdditionGameMode(string message)
+        internal void AdditionGameMode(string message)
         {
             Console.WriteLine(message);
 
@@ -153,7 +163,8 @@
                     Console.ReadLine();
                 }
             }
-        }
 
+            Helpers.AddToHistory(score, GameType.Addition);
+        }
     }
 }

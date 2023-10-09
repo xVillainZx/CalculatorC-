@@ -1,7 +1,37 @@
-﻿namespace CalculatorC_
+﻿using CalculatorC_.Models;
+
+namespace CalculatorC_
 {
     internal class Helpers
     {
+        internal static List<Game> games = new List<Game>
+        {
+
+        };
+        internal static void PrintGames()
+        {
+            Console.Clear();
+            Console.WriteLine("Games History");
+            Console.WriteLine("--------------------------------");
+            foreach (var game in games)
+            {
+                Console.WriteLine($"{game.Date} - {game.Type}: {game.Score}pts");
+            }
+            Console.WriteLine("--------------------------------\n");
+            Console.WriteLine("Press any key to return to Main Menu.");
+            Console.ReadLine();
+        }
+
+        internal static void AddToHistory(int gameScore, GameType gameType)
+        {
+            games.Add(new Game
+            {
+                Date = DateTime.Now,
+                Score = gameScore,
+                Type = gameType,
+            });
+        }
+
         internal static int[] GetDivisionNumbers()
         {
             var random = new Random();
