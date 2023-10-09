@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Numerics;
 using static System.Formats.Asn1.AsnWriter;
 
 var date = DateTime.UtcNow;
@@ -18,39 +19,43 @@ void Menu(string name)
 {
     Console.WriteLine("-----------------------------------------------");
     Console.WriteLine($"Hello {name}! It's {date}. this is your math game. Thats great that you're improving yourself!\n");
-    Console.WriteLine($@"what game mode would you like to play today? Choose from the options below:
+
+    var isGameOn = true;
+    {
+        Console.WriteLine($@"what game mode would you like to play today? Choose from the options below:
 a - Addition
 s - Subtraction
 m - Multiplication
 d - Division
 q - Quit the program :(");
-    Console.WriteLine("-----------------------------------------------");
+        Console.WriteLine("-----------------------------------------------");
 
-    var gameSelected = Console.ReadLine();
+        var gameSelected = Console.ReadLine();
 
-    switch (gameSelected.Trim().ToLower())
-    {
-        case "a":
-            AdditionGameMode("Addition game mode.");
-            break;
-        case "s":
-            SubtractionGameMode("Subtraction game mode.");
-            break;
-        case "m":
-            MultiplicationGameMode("Multiplication game mode.");
-            break;
-        case "d":
-            DivisionGameMode("Division game mode.");
-            break;
-        case "q":
-            Console.WriteLine("Goodbye");
-            Environment.Exit(1);
-            break;
-        default:
-            Console.WriteLine("Invalid input please try one of the displayed letters.");
-            Environment.Exit(1);
-            break;
-    }
+        switch (gameSelected.Trim().ToLower())
+        {
+            case "a":
+                AdditionGameMode("Addition game mode.");
+                break;
+            case "s":
+                SubtractionGameMode("Subtraction game mode.");
+                break;
+            case "m":
+                MultiplicationGameMode("Multiplication game mode.");
+                break;
+            case "d":
+                DivisionGameMode("Division game mode.");
+                break;
+            case "q":
+                Console.WriteLine("Goodbye");
+                Environment.Exit(1);
+                break;
+            default:
+                Console.WriteLine("Invalid input please try one of the displayed letters.");
+                Environment.Exit(1);
+                break;
+        }
+    } while 
 }
 
 void DivisionGameMode(string message)
