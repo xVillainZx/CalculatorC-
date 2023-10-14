@@ -32,8 +32,8 @@ namespace CalculatorC_
         internal static int[] GetDivisionNumbers()
         {
             var random = new Random();
-            var firstNumber = random.Next(0, 99);
-            var secondNumber = random.Next(0, 99);
+            var firstNumber = random.Next(1, 99);
+            var secondNumber = random.Next(1, 99);
             var result = new int[2];
 
             while (firstNumber % secondNumber != 0)
@@ -44,8 +44,6 @@ namespace CalculatorC_
 
             result[0] = firstNumber;
             result[1] = secondNumber;
-
-            Console.WriteLine(result);
 
             return result;
         }
